@@ -5,18 +5,30 @@ pipeline {
 		
 		// ******ALL CODE TO BE ADDED BELOW THIS COMMENT******
 		
-	stage('Clean'){
-                 steps{
-                      sh 'mvn clean'
-	}}
-stage('PMD'){
-                 steps{
-                      sh 'mvn site'
-	}}
-stage('Compile'){
-                 steps{
-                      sh 'mvn compile'
-	}}
+	//Code starts for stage Clean
+        stage('Clean') {
+            steps {
+                sh 'mvn clean'
+            }
+        }
+        //Code ends for stage Clean
+
+//Code starts for stage PMD
+        stage('PMD') {
+            steps {
+                sh 'mvn site'
+            }
+        }
+        //Code ends for stage PMD
+
+//Code starts for stage Compile
+        stage('Compile') {
+            steps {
+                sh 'mvn compile'
+            }
+        }
+        //Code ends for stage Compile
+
 //Code starts for stage Unit Test
         stage('Unit Test') {
             steps {
@@ -29,6 +41,8 @@ stage('Compile'){
             }
         }
         //Code ends for stage Unit Test
+
+        
 //Code starts for stage Code Coverage
         stage('Code Coverage') {
             steps {
@@ -62,8 +76,9 @@ stage('Compile'){
                 sh 'cp /var/jenkins_home/workspace/verity-devops-ex/target/ExpenseApp-1.war /tmp/apache-tomcat-9.0.82/webapps'
             }
         }
-        //Code ends for stage Deploy War on Tomcat Server
-	
+        //Code ends for stage Deploy War on Tomcat Server        
+        
+        
 		// ******ALL CODE TO BE ADDED ABOVE THIS COMMENT******
     }
 }
