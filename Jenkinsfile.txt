@@ -29,8 +29,6 @@ stage('Compile'){
             }
         }
         //Code ends for stage Unit Test
-has context menu
-Compose
 //Code starts for stage Code Coverage
         stage('Code Coverage') {
             steps {
